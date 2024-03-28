@@ -47,7 +47,7 @@ const Sidebar = () => {
           <SideBarRow icon={<HistoryIcon />} name={"History"} />
           <SideBarRow icon={<SubscriptionsIcon />} name={"Your Videos"} />
           <SideBarRow icon={<WatchLaterIcon />} name={"Watch Later"} />
-          <SideBarRow icon={<ThumbUpOutlinedIcon />} name={"Liked Videos"} />
+          <SideBarRow icon={<ThumbUpOutlinedIcon />} name={"Liked Videos.."} />
         </ul>
       </div>
     </>
