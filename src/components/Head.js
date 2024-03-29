@@ -37,7 +37,7 @@ const Head = () => {
   };
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-10 flex justify-between items-center p-3 px-5 shadow-lg bg-white">
+      <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3 px-5 shadow-lg bg-white">
         <div className="flex ">
           <IconButton onClick={handleToggle} className="h-8 cursor-pointer">
             <MenuIcon />
