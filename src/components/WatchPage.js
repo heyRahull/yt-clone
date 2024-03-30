@@ -4,6 +4,7 @@ import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
+import SuggestionContainer from "./SuggestionContainer";
 
 const WatchPage = () => {
   const [params, setParams] = useSearchParams();
@@ -28,10 +29,11 @@ const WatchPage = () => {
           ></iframe>
         </div>
         <div className="w-full md:w-4/12 flex-grow mt-4 lg:mt-0">
-          <LiveChat />
+          {/* <LiveChat /> */}
+          <SuggestionContainer />
         </div>
+        <CommentsContainer />
       </div>
-      <CommentsContainer />
     </div>
   );
 };

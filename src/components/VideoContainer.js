@@ -26,7 +26,7 @@ const VideoContainer = () => {
 
     const data = await fetch(apiUrl);
     const json = await data.json();
-    // console.log(json);
+    console.log(json);
     if (json.error) {
       setError(true);
     } else {
