@@ -74,7 +74,7 @@ const CommentsContainer = () => {
 
   useEffect(() => {
     fetchComments();
-  }, []);
+  }, [videoId]);
 
   const fetchComments = async () => {
     const data = await fetch(

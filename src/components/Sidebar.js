@@ -23,7 +23,22 @@ const Sidebar = () => {
 
   //early return
   if (isMenuOpen == false) {
-    return null;
+    return (
+      <div className="fixed z-10 top-[66px] left-0 bg-white h-full w-16 shadow-lg p-2 ">
+        <div className="">
+          <SideBarRow icon={<HomeIcon />} />
+          <SideBarRow icon={<WhatshotIcon />} />
+          <SideBarRow icon={<SubscriptionsIcon />} />
+          <SideBarRow icon={<VideoLibraryIcon />} />
+        </div>
+        <ul>
+          {/* <SideBarRow icon={<HistoryIcon />} />
+          <SideBarRow icon={<SubscriptionsIcon />} />
+          <SideBarRow icon={<WatchLaterIcon />} />
+          <SideBarRow icon={<ThumbUpOutlinedIcon />} /> */}
+        </ul>
+      </div>
+    );
   }
   return (
     <>

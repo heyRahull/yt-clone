@@ -7,7 +7,7 @@ const SideBarRow = ({ icon, name }) => {
       <ul className="hover:bg-slate-200 p-1">
         <Link to="/" className="flex m-2 items-center ">
           <li className="sideBarRow__icon text-gray-500 "> {icon}</li>
-          <li className="ml-5">{name}</li>
+          <li className="ml-5">{name && name}</li>
         </Link>
       </ul>
     </div>
