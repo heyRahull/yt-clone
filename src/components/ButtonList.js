@@ -3,6 +3,7 @@ import Button from "./Button";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import IconButton from "@mui/material/IconButton";
+import { GOOGLE_API_KEY } from "../utils/constants";
 
 const ButtonList = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -12,7 +13,8 @@ const ButtonList = () => {
   }, []);
   const fetchData = async () => {
     const data = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=AIzaSyBhrrKf3_EMYVLD-JPU9NcO_I__IIKXXvY"
+      ` https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=+
+        ${GOOGLE_API_KEY}`
     );
     const json = await data.json();
 
@@ -25,7 +27,7 @@ const ButtonList = () => {
 
   return (
     <>
-      <div className="flex hover:overflow-x-scroll button-list-container px-16">
+      <div className="flex overflow-x-scroll button-list-container px-16">
         <button className="absolute left-0 p-2 rounded-full bg-white hover:bg-gray-300">
           <IconButton>
             <ChevronLeftIcon />
