@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SuggestionCard from "./SuggestionCard";
 import { GOOGLE_API_KEY } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const SuggestionContainer = () => {
   const [suggestedVideos, setSuggestedVideos] = useState([]);
@@ -20,15 +21,20 @@ const SuggestionContainer = () => {
   };
 
   return (
-    <div className="md:h-[600px] ml-2 p-2">
+    <div className="md:h-[400px] ml-2 p-2">
       {suggestedVideos.map((suggestedVideo) => {
         if (suggestedVideo.id.kind === "youtube#video") {
           return (
-            <SuggestionCard
+            <Link
               key={suggestedVideo.id.videoId}
-              info={suggestedVideo}
-              views="1.5 M Views"
-            />
+              to={"/watch?v=" + suggestedVideo.id.videoId}
+            >
+              <SuggestionCard
+                key={suggestedVideo.id.videoId}
+                info={suggestedVideo}
+                views="1.5 M Views"
+              />
+            </Link>
           );
         }
       })}

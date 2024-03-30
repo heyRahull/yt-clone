@@ -27,7 +27,7 @@ const Videocard = ({ info }) => {
 
   //   console.log(info);
   return (
-    <div className="p-2 mx-2 mb-10 w-72 h-64 hover:shadow-xl">
+    <div className="p-2 mx-1 mb-10 w-72 h-64 hover:shadow-xl">
       <img
         className="h-36 w-64 rounded-xl"
         src={thumbnails?.medium?.url}

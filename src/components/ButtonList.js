@@ -27,8 +27,8 @@ const ButtonList = () => {
 
   return (
     <>
-      <div className="flex overflow-x-scroll button-list-container px-16">
-        <button className="absolute left-0 p-2 rounded-full bg-white hover:bg-gray-300">
+      <div className="flex overflow-x-scroll button-list-container px-14">
+        <button className="absolute left-16 p-2 rounded-full bg-white hover:bg-gray-300">
           <IconButton>
             <ChevronLeftIcon />
           </IconButton>
