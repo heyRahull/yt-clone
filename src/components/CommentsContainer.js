@@ -87,8 +87,8 @@ const CommentsContainer = () => {
   console.log(comments);
   return (
     <>
-      <div className="m-5 p-2 md:w-8/12">
-        <h1 className="text-2xl font-bold">Comment section</h1>
+      <div className="md:m-5 md:p-2 md:w-8/12">
+        <h1 className="text-2xl font-bold ml-4">Comment section</h1>
         {comments &&
           comments.map((comment) => (
             <>
@@ -96,7 +96,7 @@ const CommentsContainer = () => {
               {comment.replies && (
                 <React.Fragment>
                   {comment.replies.comments.map((comment) => (
-                    <div className="pl-5 ml-5">
+                    <div className="md:pl-5 md:ml-5">
                       <CommentReply
                         data={comment}
                         url={comment.snippet?.authorProfileImageUrl}

@@ -23,7 +23,7 @@ const SuggestionContainer = ({ videoData }) => {
   };
 
   return (
-    <div className="md:h-[400px] ml-2 p-2">
+    <div className="md:h-[400px] md:ml-2 md:p-2">
       {suggestedVideos &&
         suggestedVideos.map((suggestedVideo) => {
           if (suggestedVideo.id.kind === "youtube#video") {

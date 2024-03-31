@@ -5,7 +5,7 @@ import rahulImage from "../Images/rahul.png";
 const Comment = ({ data }) => {
   // const { name, text, replies } = data;
   return (
-    <div className="flex p-2 m-2 rounded-md">
+    <div className="comment_mbl flex md:flex md:p-2 md:m-2 md:rounded-md">
       <Avatar
         alt="user"
         src={data.snippet?.topLevelComment?.snippet?.authorProfileImageUrl}

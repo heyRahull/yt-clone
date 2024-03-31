@@ -58,12 +58,24 @@ code {
   }
 
   .videContainer_mbl {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   .video_card__mbl > img {
     height: unset;
     width: 100%;
     border-radius: unset;
+  }
+
+  .sugg_card__desc_mbl {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    margin-left: 12px;
+  }
+  .comment_mbl {
+    margin: 16px 12px;
+  }
+  .watchPage_mbl {
+    margin-bottom: 60px;
   }
 }

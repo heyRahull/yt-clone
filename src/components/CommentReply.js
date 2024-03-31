@@ -6,7 +6,7 @@ const CommentReply = ({ data }) => {
   const { snippet } = data;
   const { authorProfileImageUrl, authorDisplayName, textDisplay } = snippet;
   return (
-    <div className="flex p-2 m-2 rounded-md">
+    <div className="comment_mbl pl-10 flex md:flex md:p-2 md:m-2 rounded-md">
       <Avatar
         alt="user"
         src={authorProfileImageUrl}
