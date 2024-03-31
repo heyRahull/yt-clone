@@ -22,29 +22,31 @@ const SearchCard = ({ thumbnail, data }) => {
   };
 
   return (
-    <div className="flex m-2 p-2">
+    <div className="md:flex md:m-2 md:p-2">
       <img
-        style={{
-          height: "237px", // Adjust height as needed
-          width: "422px", // Adjust width as needed
-          maxWidth: "100%", // Ensure the image doesn't exceed the container's width
-        }}
-        className="rounded-3xl h-[237px] w-auto max-w-[422px]  md:h-[280px] md:w-auto md:max-w-[500px]"
+        className="md:rounded-3xl md:h-[237px] md:w-[422px] md:max-w-full w-full"
         src={thumbnailUrl}
         alt="thumbnail"
       />
-      <div className="flex flex-col mx-4">
+      <div className="search_card__mbl md:flex md:flex-col md:mx-4">
         <span className="font-semibold line-clamp-2 break-keep text-md">
           {title}
         </span>
-        <div className="flex ">
-          <span className="text-xs text-gray-600">3.8M views</span>
-          <span className="text-xs text-gray-600">
-            &nbsp; • {formatDate(publishedAt)}
+        <div className="searchVdeo_detail_mbl py-3">
+          <div className="flex">
+            <span className="text-xs text-gray-600">3.8M views</span>
+            <span className="text-xs text-gray-600">
+              &nbsp; • {formatDate(publishedAt)}
+            </span>
+          </div>
+          <span className="text-xs text-gray-600 md:py-3">
+            {channelTitle}
+            <span className="md:hidden">&nbsp; • &nbsp;</span>
           </span>
         </div>
-        <span className="text-xs text-gray-600 py-3">{channelTitle}</span>
-        <span className="text-xs text-gray-600">{description}</span>
+        <span className="text-xs text-gray-600 seacrCard_desc__mbl">
+          {description}
+        </span>
       </div>
     </div>
   );

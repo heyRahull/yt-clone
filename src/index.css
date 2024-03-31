@@ -78,4 +78,20 @@ code {
   .watchPage_mbl {
     margin-bottom: 60px;
   }
+  .search_card__mbl {
+    margin-top: 4px;
+    margin-bottom: 24px;
+    margin-left: 12px;
+  }
+  .seacrCard_desc__mbl {
+    display: none;
+  }
+  .searchVdeo_detail_mbl {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  .searchPageContainer_mbl {
+    margin-bottom: 60px;
+  }
 }

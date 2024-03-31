@@ -25,7 +25,7 @@ const SearchContainer = () => {
   };
 
   return (
-    <div className="ml-16 md:max-w-screen-xl">
+    <div className="md:max-w-screen-xl searchPageContainer_mbl">
       {searchResults.map((searchResult) => {
         if (searchResult.id.kind === "youtube#video") {
           return (
