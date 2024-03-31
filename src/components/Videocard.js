@@ -27,21 +27,23 @@ const Videocard = ({ info }) => {
 
   //   console.log(info);
   return (
-    <div className="p-2 mx-1 mb-10 w-72 h-64 hover:shadow-xl">
+    <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-72 md:h-64 md:hover:shadow-xl">
       <img
         className="h-36 w-64 rounded-xl"
         src={thumbnails?.medium?.url}
         alt="thumbnail"
       />
-      <h1 className="font-bold pt-2 break-all line-clamp-2">{title}</h1>
-      <h4 className="text-sm text-gray-600">{channelTitle}</h4>
-      <div className="flex">
-        <h4 className="text-sm text-gray-600">
-          {formatViewCount(statistics.viewCount)} views
-        </h4>
-        <h4 className="text-sm text-gray-600">
-          &nbsp; • {formatDate(publishedAt)}
-        </h4>
+      <div className="video_card__desc_mbl">
+        <h1 className="font-bold pt-2 break-all line-clamp-2">{title}</h1>
+        <h4 className="text-sm text-gray-600">{channelTitle}</h4>
+        <div className="flex">
+          <h4 className="text-sm text-gray-600">
+            {formatViewCount(statistics.viewCount)} views
+          </h4>
+          <h4 className="text-sm text-gray-600">
+            &nbsp; • {formatDate(publishedAt)}
+          </h4>
+        </div>
       </div>
     </div>
   );

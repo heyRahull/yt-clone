@@ -47,4 +47,23 @@ code {
   .search_sugggestion_desktop {
     display: none;
   }
+
+  .video_card__mbl {
+    padding: unset;
+    margin: unset;
+  }
+  .video_card__desc_mbl {
+    margin-bottom: 16px;
+    margin-left: 12px;
+  }
+
+  .videContainer_mbl {
+    margin-bottom: 40px;
+  }
+
+  .video_card__mbl > img {
+    height: unset;
+    width: unset;
+    border-radius: unset;
+  }
 }
