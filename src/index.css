@@ -63,7 +63,7 @@ code {
 
   .video_card__mbl > img {
     height: unset;
-    width: unset;
+    width: 100%;
     border-radius: unset;
   }
 }
