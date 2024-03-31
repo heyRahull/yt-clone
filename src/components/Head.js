@@ -116,7 +116,7 @@ const Head = () => {
           </a>
         </div>
 
-        <div className="border shadow-sm rounded-3xl">
+        <div className="border shadow-sm rounded-3xl flex ml-1">
           <InputBase
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
