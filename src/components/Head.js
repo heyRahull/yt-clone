@@ -124,7 +124,7 @@ const Head = () => {
             placeholder="Search"
           />
           {showSuggestions && suggestions.length > 0 && (
-            <div className="z-10 fixed bg-white py-2 px-2 mt-16 shadow-lg rounded-lg border border-gray-100">
+            <div className="fixed bg-white py-2 px-2 mt-16 shadow-lg rounded-lg border border-gray-100">
               <ul>
                 {suggestions.map((res, index) => (
                   <li
