@@ -11,7 +11,12 @@ import SearchContainer from "./components/SearchContainer";
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body />,
+    element: (
+      <>
+        <Head />
+        <Body />
+      </>
+    ),
     children: [
       {
         path: "/",
@@ -33,7 +38,6 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-        <Head />
         <RouterProvider router={appRouter} />
         {/**
          *

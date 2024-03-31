@@ -21,7 +21,7 @@ const Button = ({ name, categoryId, categoryData }) => {
         className="bg-gray-200 px-5 py-2 m-2 rounded-lg hover:bg-gray-300 whitespace-nowrap"
         onClick={handleCategory}
       >
-        {name}:{categoryId}
+        {name}
       </button>
     </div>
   );

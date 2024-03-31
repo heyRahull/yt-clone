@@ -27,8 +27,8 @@ const ButtonList = () => {
 
   return (
     <>
-      <div className="flex overflow-x-scroll button-list-container px-14">
-        <button className="absolute left-16 p-2 rounded-full bg-white hover:bg-gray-300">
+      <div className="flex overflow-x-scroll button-list-container md:px-14">
+        <button className=" scroll_btn_mobille absolute left-16 p-2 rounded-full bg-white hover:bg-gray-300">
           <IconButton>
             <ChevronLeftIcon />
           </IconButton>
@@ -43,7 +43,7 @@ const ButtonList = () => {
             />
           );
         })}
-        <button className="absolute right-0 p-2 rounded-full bg-white hover:bg-gray-300">
+        <button className=" scroll_btn_mobille absolute right-0 p-2 rounded-full bg-white hover:bg-gray-300">
           <IconButton>
             <ChevronRightIcon />
           </IconButton>
