@@ -24,20 +24,25 @@ const Sidebar = () => {
   //early return
   if (isMenuOpen == false) {
     return (
-      <div className="fixed z-10 top-[66px] left-0 bg-white h-full w-16 shadow-lg p-2 ">
-        <div className="">
-          <SideBarRow icon={<HomeIcon />} />
-          <SideBarRow icon={<WhatshotIcon />} />
-          <SideBarRow icon={<SubscriptionsIcon />} />
-          <SideBarRow icon={<VideoLibraryIcon />} />
+      <>
+        {/* Collapsed Sidebar */}
+        <div className="collapsed_sidebar_desktop fixed z-10 top-[66px] bottom-0 md:left-0 bg-red-300 h-full w-16 shadow-lg p-2">
+          <div className="">
+            <SideBarRow icon={<HomeIcon />} />
+            <SideBarRow icon={<WhatshotIcon />} />
+            <SideBarRow icon={<SubscriptionsIcon />} />
+            <SideBarRow icon={<VideoLibraryIcon />} />
+          </div>
         </div>
-        <ul>
-          {/* <SideBarRow icon={<HistoryIcon />} />
-          <SideBarRow icon={<SubscriptionsIcon />} />
-          <SideBarRow icon={<WatchLaterIcon />} />
-          <SideBarRow icon={<ThumbUpOutlinedIcon />} /> */}
-        </ul>
-      </div>
+        <div className="md:hidden collapsed_sidebar_mbl bg-white">
+          <div className="flex justify-around">
+            <SideBarRow icon={<HomeIcon />} />
+            <SideBarRow icon={<WhatshotIcon />} />
+            <SideBarRow icon={<SubscriptionsIcon />} />
+            <SideBarRow icon={<VideoLibraryIcon />} />
+          </div>
+        </div>
+      </>
     );
   }
   return (

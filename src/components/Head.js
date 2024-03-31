@@ -10,6 +10,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import rahulImage from "../Images/rahul.png";
+import yt_logo_mbl from "../Images/yt_logo_mbl.png";
+import Paper from "@mui/material/Paper";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
+import { TextField } from "@mui/material";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,13 +36,19 @@ const Head = () => {
     setSuggestions(json[1]);
   };
 
+  const handleSuggestionClick = (suggestion) => {
+    setSearchQuery(suggestion);
+    setShowSuggestions(false);
+  };
+
   const dispatch = useDispatch();
   const handleToggle = () => {
     dispatch(toggleMenu());
   };
   return (
     <>
-      <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3 px-5 shadow-lg bg-white">
+      {/* Header desktop  */}
+      <div className="header_desktop fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3 px-5 shadow-lg bg-white">
         <div className="flex ">
           <IconButton onClick={handleToggle} className="h-8 cursor-pointer">
             <MenuIcon />
@@ -59,17 +70,18 @@ const Head = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setShowSuggestions(false)}
+            // onBlur={() => setShowSuggestions(false)}
           />
-          <button className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full">
-            <SearchOutlinedIcon fontSize="small" />
-          </button>
           {showSuggestions && suggestions.length > 0 && (
-            <div className="fixed bg-white py-2 px-2 mt-12 shadow-lg rounded-lg w-[37rem] border border-gray-100">
+            <div className="search_sugggestion_desktop fixed bg-white py-2 px-2 mt-12 shadow-lg rounded-lg w-[37rem] border border-gray-100">
               <ul>
                 {suggestions.map((res, index) => (
                   <li
-                    className="py-2 px-2 shadow-sm hover:bg-gray-100"
+                    className="py-2 px-2 shadow-sm hover:bg-red-100"
+                    onClick={() => {
+                      handleSuggestionClick(res);
+                      console.log(res);
+                    }}
                     key={index}
                   >
                     <SearchOutlinedIcon fontSize="small" />{" "}
@@ -79,6 +91,11 @@ const Head = () => {
               </ul>
             </div>
           )}
+          <Link to={"/search?search_query=" + searchQuery}>
+            <div className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full">
+              <SearchOutlinedIcon fontSize="small" />
+            </div>
+          </Link>
         </div>
 
         <div className="flex items-center">
@@ -89,6 +106,58 @@ const Head = () => {
             <NotificationsOutlinedIcon fontSize="medium" className="" />
           </IconButton>
           <Avatar alt="Remy Sharp" src={rahulImage} className="mx-3" />
+        </div>
+      </div>
+      {/* Header Mobile  */}
+      <div className="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center p-3 px-3 shadow-lg bg-white">
+        <div className="flex ">
+          <a href="/">
+            <img className="h-6 mx-1" src={yt_logo_mbl} alt="logo" />
+          </a>
+        </div>
+
+        <div className="border shadow-sm rounded-3xl">
+          <InputBase
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => setShowSuggestions(true)}
+            className="pl-2"
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Search"
+          />
+          {showSuggestions && suggestions.length > 0 && (
+            <div className="fixed bg-white py-2 px-2 mt-4 shadow-lg rounded-lg border border-gray-100">
+              <ul>
+                {suggestions.map((res, index) => (
+                  <li
+                    className="py-2 px-2 shadow-sm"
+                    onClick={() => {
+                      handleSuggestionClick(res);
+                      console.log(res);
+                    }}
+                    key={index}
+                  >
+                    <SearchOutlinedIcon fontSize="small" />{" "}
+                    <span className="pl-1">{res}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <Link to={"/search?search_query=" + searchQuery}>
+            <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+              <SearchIcon />
+            </IconButton>
+          </Link>
+        </div>
+        <div className="flex items-center">
+          <Avatar
+            onClick={handleToggle}
+            className="mx-3"
+            alt="Remy Sharp"
+            src={rahulImage}
+            sx={{ width: 24, height: 24 }}
+          />
         </div>
       </div>
       <div className="pt-20"></div>

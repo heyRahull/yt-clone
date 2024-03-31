@@ -23,3 +23,28 @@ code {
 .button-list-container::-webkit-scrollbar {
   display: none;
 }
+
+@media (max-width: 767px) {
+  .scroll_btn_mobille {
+    display: none;
+  }
+
+  .collapsed_sidebar_desktop {
+    display: none;
+  }
+
+  .collapsed_sidebar_mbl {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .header_desktop {
+    display: none;
+  }
+
+  .search_sugggestion_desktop {
+    display: none;
+  }
+}

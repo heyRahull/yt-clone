@@ -3,6 +3,7 @@ import Comment from "./Comment";
 import CommentsList from "./CommentsList";
 import { useLocation, useParams } from "react-router-dom";
 import CommentReply from "./CommentReply";
+import { GOOGLE_API_KEY } from "../utils/constants";
 
 const commentsData = [
   {
@@ -78,7 +79,7 @@ const CommentsContainer = () => {
 
   const fetchComments = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=AIzaSyAEfp84SRpo9Hdem-jZKCVlhTjOSKYvZHM&maxResults=50`
+      `https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=${videoId}&key=${GOOGLE_API_KEY}&maxResults=50`
     );
     const json = await data.json();
     setComments(json.items);
