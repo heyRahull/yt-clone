@@ -1,3 +1,5 @@
+import { formatDistanceToNow } from "date-fns";
+
 var nameList = [
   "Time",
   "Past",
@@ -235,3 +237,7 @@ const msgList = [
 export function generateRandomMsg() {
   return msgList[Math.floor(Math.random() * msgList.length)];
 }
+
+export const formatDate = (dateString) => {
+  return formatDistanceToNow(new Date(dateString), { addSuffix: true });
+};
