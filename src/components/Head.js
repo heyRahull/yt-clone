@@ -11,10 +11,8 @@ import IconButton from "@mui/material/IconButton";
 import Avatar from "@mui/material/Avatar";
 import rahulImage from "../Images/rahul.png";
 import yt_logo_mbl from "../Images/yt_logo_mbl.png";
-import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
-import { TextField } from "@mui/material";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
