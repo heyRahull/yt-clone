@@ -5,7 +5,7 @@ import { CHANNEL_DETAIL_API, GOOGLE_API_KEY } from "../utils/constants";
 import { formatViewCount } from "../utils/constants";
 
 const Videocard = ({ info }) => {
-  console.log(info);
+  // console.log(info);
   const [channelDetail, setChannelDetail] = useState();
   const { snippet, statistics } = info;
   const { channelId, title, channelTitle, publishedAt, thumbnails } = snippet;
