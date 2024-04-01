@@ -4,6 +4,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import IconButton from "@mui/material/IconButton";
 import { GOOGLE_API_KEY } from "../utils/constants";
+import { VIDEO_CATEGORIES_API } from "../utils/constants";
 
 const ButtonList = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -13,7 +14,7 @@ const ButtonList = () => {
   }, []);
   const fetchData = async () => {
     const data = await fetch(
-      ` https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&regionCode=US&key=+
+      `${VIDEO_CATEGORIES_API}&key=
         ${GOOGLE_API_KEY}`
     );
     const json = await data.json();

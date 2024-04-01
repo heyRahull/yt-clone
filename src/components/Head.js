@@ -75,7 +75,7 @@ const Head = () => {
               <ul>
                 {suggestions.map((res, index) => (
                   <li
-                    className="py-2 px-2 shadow-sm hover:bg-red-100"
+                    className="py-2 px-2 shadow-sm hover:bg-slate-100"
                     onClick={() => {
                       handleSuggestionClick(res);
                       console.log(res);

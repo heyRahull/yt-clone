@@ -12,6 +12,7 @@ import HistoryIcon from "@mui/icons-material/History";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -28,18 +29,34 @@ const Sidebar = () => {
         {/* Collapsed Sidebar */}
         <div className="collapsed_sidebar_desktop fixed z-10 top-[66px] bottom-0 md:left-0 bg-white h-full w-16 shadow-lg p-2">
           <div className="">
-            <SideBarRow icon={<HomeIcon />} />
-            <SideBarRow icon={<WhatshotIcon />} />
-            <SideBarRow icon={<SubscriptionsIcon />} />
-            <SideBarRow icon={<VideoLibraryIcon />} />
+            <Link to="/">
+              <SideBarRow icon={<HomeIcon />} />
+            </Link>
+            <Link to="/search?search_query=trending">
+              <SideBarRow icon={<WhatshotIcon />} />
+            </Link>
+            <Link to="/search?search_query=music taylor swift">
+              <SideBarRow icon={<LibraryMusicIcon />} />
+            </Link>
+            <Link to="/search?search_query=youtube%20shorts">
+              <SideBarRow icon={<VideoLibraryIcon />} />
+            </Link>
           </div>
         </div>
-        <div className="md:hidden collapsed_sidebar_mbl bg-white">
+        <div className="md:hidden collapsed_sidebar_mbl bg-white z-10">
           <div className="flex justify-around">
-            <SideBarRow icon={<HomeIcon />} />
-            <SideBarRow icon={<WhatshotIcon />} />
-            <SideBarRow icon={<SubscriptionsIcon />} />
-            <SideBarRow icon={<VideoLibraryIcon />} />
+            <Link to="/">
+              <SideBarRow icon={<HomeIcon />} />
+            </Link>
+            <Link to="/search?search_query=trending">
+              <SideBarRow icon={<WhatshotIcon />} />
+            </Link>
+            <Link to="/search?search_query=music taylor swift">
+              <SideBarRow icon={<LibraryMusicIcon />} />
+            </Link>
+            <Link to="/search?search_query=youtube%20shorts">
+              <SideBarRow icon={<VideoLibraryIcon />} />
+            </Link>
           </div>
         </div>
       </>

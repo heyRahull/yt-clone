@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
+import { Avatar } from "@mui/material";
+import { CHANNEL_DETAIL_API, GOOGLE_API_KEY } from "../utils/constants";
+import { formatViewCount } from "../utils/constants";
 
 const Videocard = ({ info }) => {
+  console.log(info);
+  const [channelDetail, setChannelDetail] = useState();
   const { snippet, statistics } = info;
-  const { title, channelTitle, publishedAt, thumbnails } = snippet;
+  const { channelId, title, channelTitle, publishedAt, thumbnails } = snippet;
 
-  const formatViewCount = (viewCount) => {
-    viewCount = parseInt(viewCount); // Convert viewCount to a number
-    // Check if viewCount is greater than or equal to 1 million
-    if (viewCount >= 1000000) {
-      return (viewCount / 1000000).toFixed(1) + "M";
-    }
-    // Check if viewCount is greater than or equal to 1 thousand
-    else if (viewCount >= 1000) {
-      return (viewCount / 1000).toFixed(0) + "K";
-    }
-    // For view counts less than 1 thousand
-    else {
-      return viewCount;
-    }
+  useEffect(() => {
+    getChannelDetails();
+  }, []);
+
+  const getChannelDetails = async () => {
+    const data = await fetch(
+      `${CHANNEL_DETAIL_API}&id=${channelId}&key=${GOOGLE_API_KEY}`
+    );
+    const json = await data.json();
+
+    setChannelDetail(json.items[0].snippet.thumbnails.high.url);
   };
 
   const formatDate = (dateString) => {
@@ -27,22 +29,32 @@ const Videocard = ({ info }) => {
 
   //   console.log(info);
   return (
-    <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-72 md:h-64 md:hover:shadow-xl">
+    <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-64 md:h-64">
       <img
-        className="md:h-36 md:w-64 md:rounded-xl"
+        className="md:h-36 md:w-[100%] md:rounded-xl"
         src={thumbnails?.medium?.url}
         alt="thumbnail"
       />
-      <div className="video_card__desc_mbl">
-        <h1 className="font-bold pt-2 break-all line-clamp-2">{title}</h1>
-        <h4 className="text-sm text-gray-600">{channelTitle}</h4>
-        <div className="flex">
-          <h4 className="text-sm text-gray-600">
-            {formatViewCount(statistics.viewCount)} views
-          </h4>
-          <h4 className="text-sm text-gray-600">
-            &nbsp; • {formatDate(publishedAt)}
-          </h4>
+      <div className="video_card__desc_mbl flex">
+        <Avatar
+          alt="channel_logo"
+          src={channelDetail}
+          className="mr-2 mt-2"
+          sx={{ width: 34, height: 34 }}
+        />
+        <div>
+          <h1 className="font-semibold pt-2 break-all line-clamp-2 mb-1">
+            {title}
+          </h1>
+          <h4 className="text-xs text-gray-600">{channelTitle}</h4>
+          <div className="flex">
+            <h4 className="text-xs text-gray-600">
+              {formatViewCount(statistics.viewCount)} views
+            </h4>
+            <h4 className="text-xs text-gray-600">
+              &nbsp; • {formatDate(publishedAt)}
+            </h4>
+          </div>
         </div>
       </div>
     </div>
