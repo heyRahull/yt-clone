@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import SideBarRow from "./SideBarRow";
+import CollapsedSideBarRow from "./CollapsedSideBarRow";
 import HomeIcon from "@mui/icons-material/Home";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
@@ -30,32 +31,38 @@ const Sidebar = () => {
         <div className="collapsed_sidebar_desktop fixed z-10 top-[66px] bottom-0 md:left-0 bg-white h-full w-16 shadow-lg p-2">
           <div className="">
             <Link to="/">
-              <SideBarRow icon={<HomeIcon />} />
+              <CollapsedSideBarRow icon={<HomeIcon />} name={"Home"} />
             </Link>
             <Link to="/search?search_query=trending">
-              <SideBarRow icon={<WhatshotIcon />} />
+              <CollapsedSideBarRow icon={<WhatshotIcon />} name={"Trend"} />
             </Link>
             <Link to="/search?search_query=music taylor swift">
-              <SideBarRow icon={<LibraryMusicIcon />} />
+              <CollapsedSideBarRow icon={<LibraryMusicIcon />} name={"Music"} />
             </Link>
             <Link to="/search?search_query=youtube%20shorts">
-              <SideBarRow icon={<VideoLibraryIcon />} />
+              <CollapsedSideBarRow
+                icon={<VideoLibraryIcon />}
+                name={"Shorts"}
+              />
             </Link>
           </div>
         </div>
         <div className="md:hidden collapsed_sidebar_mbl bg-white z-10">
           <div className="flex justify-around">
             <Link to="/">
-              <SideBarRow icon={<HomeIcon />} />
+              <CollapsedSideBarRow icon={<HomeIcon />} name={"Home"} />
             </Link>
             <Link to="/search?search_query=trending">
-              <SideBarRow icon={<WhatshotIcon />} />
+              <CollapsedSideBarRow icon={<WhatshotIcon />} name={"Trend"} />
             </Link>
             <Link to="/search?search_query=music taylor swift">
-              <SideBarRow icon={<LibraryMusicIcon />} />
+              <CollapsedSideBarRow icon={<LibraryMusicIcon />} name={"Music"} />
             </Link>
             <Link to="/search?search_query=youtube%20shorts">
-              <SideBarRow icon={<VideoLibraryIcon />} />
+              <CollapsedSideBarRow
+                icon={<VideoLibraryIcon />}
+                name={"Shorts"}
+              />
             </Link>
           </div>
         </div>

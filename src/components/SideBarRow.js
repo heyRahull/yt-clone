@@ -5,12 +5,10 @@ const SideBarRow = ({ icon, name }) => {
   return (
     <div className="sidebar__row">
       <ul className="md:hover:bg-slate-100 p-1">
-        {/* <Link to="/" className="flex m-2 items-center "> */}
         <div className="flex m-2 items-center">
           <li className="sideBarRow__icon text-gray-500 "> {icon}</li>
           <li className="ml-5">{name && name}</li>
         </div>
-        {/* </Link> */}
       </ul>
     </div>
   );
