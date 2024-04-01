@@ -19,12 +19,11 @@ const Comment = ({ data }) => {
           {data.snippet?.topLevelComment?.snippet?.authorDisplayName}
         </p>
         <p
+          style={{ wordBreak: "break-word" }}
           dangerouslySetInnerHTML={createMarkup(
             data.snippet?.topLevelComment?.snippet?.textDisplay
           )}
         />
-
-        {/* <p>{data.snippet?.topLevelComment?.snippet?.textDisplay}</p> */}
       </div>
     </div>
   );
