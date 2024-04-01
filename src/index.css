@@ -95,4 +95,35 @@ code {
   .searchPageContainer_mbl {
     margin-bottom: 60px;
   }
+  .channelDetail_mbl {
+    margin-right: 12px;
+    margin-bottom: 12px;
+  }
+  .likeSection__mbl {
+    margin-left: 8px;
+  }
+  .videoTitle__mbl {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.ripple {
+  background-position: center;
+  transition: 0.8s;
+}
+.ripple:hover {
+  background: #024d72 radial-gradient(circle, transparent 1%, #d5d8db 1%)
+    center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: 0s;
+}
+
+@media (max-width: 320px) {
+  .dislike_mbl_small {
+    margin-right: 0px !important;
+  }
 }

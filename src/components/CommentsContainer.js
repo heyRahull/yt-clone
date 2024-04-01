@@ -85,29 +85,30 @@ const CommentsContainer = () => {
     const json = await data.json();
     setComments(json.items);
   };
+
   return (
     <>
       <div className="md:m-5 md:ml-0 md:p-2 md:w-8/12">
         <h1 className="text-2xl font-bold ml-4">Comments</h1>
         {comments &&
           comments.map((comment) => (
-            <>
+            <div key={comment.id}>
               <Comment data={comment} />
               {comment.replies && (
                 <React.Fragment>
-                  {comment.replies.comments.map((comment) => (
-                    <div className="md:pl-5 md:ml-5">
+                  {comment.replies.comments.map((reply) => (
+                    <div className="md:pl-5 md:ml-5" key={reply.id}>
                       <CommentReply
-                        data={comment}
-                        url={comment.snippet?.authorProfileImageUrl}
-                        name={comment.snippet?.authorDisplayName}
-                        textDisplay={comment.snippet?.textDisplay}
+                        data={reply}
+                        url={reply.snippet?.authorProfileImageUrl}
+                        name={reply.snippet?.authorDisplayName}
+                        textDisplay={reply.snippet?.textDisplay}
                       />
                     </div>
                   ))}
                 </React.Fragment>
               )}
-            </>
+            </div>
           ))}
 
         {/* <CommentsList comments={commentsData} /> */}

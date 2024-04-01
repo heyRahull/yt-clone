@@ -7,11 +7,12 @@ import { YOUTUBE_SUGGESTION_API } from "../utils/constants";
 const SuggestionContainer = ({ videoData }) => {
   const [suggestedVideos, setSuggestedVideos] = useState([]);
   const channelId = videoData[0]?.snippet?.channelId;
-
   useEffect(() => {
-    fetchSuggestionVideos();
-  }, [channelId]);
-
+    if (videoData.length > 0) {
+      fetchSuggestionVideos();
+    }
+  }, [videoData]);
+  // console.log(channelId);
   const fetchSuggestionVideos = async () => {
     const data = await fetch(
       `${YOUTUBE_SUGGESTION_API}&channelId=${channelId}&key=${GOOGLE_API_KEY}`

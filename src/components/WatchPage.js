@@ -6,6 +6,7 @@ import CommentsContainer from "./CommentsContainer";
 import LiveChat from "./LiveChat";
 import SuggestionContainer from "./SuggestionContainer";
 import { GOOGLE_API_KEY } from "../utils/constants";
+import VideoDescription from "./VideoDescription";
 
 const WatchPage = () => {
   const [params, setParams] = useSearchParams();
@@ -28,8 +29,8 @@ const WatchPage = () => {
       )}&key=${GOOGLE_API_KEY}`
     );
     const json = await data.json();
-    // console.log(json);
     setVideoData(json.items);
+    // console.log(videoData);
   };
 
   return (
@@ -37,7 +38,7 @@ const WatchPage = () => {
       <div className="md:px-5 md:flex md:flex-wrap md:w-full">
         <div className="md:w-8/12 flex-grow md:mt-4">
           <iframe
-            className="md:rounded-xl md:h-[400px] md:w-full w-full h-[300px]"
+            className="md:rounded-xl md:h-[500px] md:w-full w-full h-[300px]"
             // width="100%"
             // height="400"
             src={
@@ -50,6 +51,7 @@ const WatchPage = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
+          <VideoDescription videoData={videoData} />
         </div>
         <div className="w-full md:w-4/12 flex-grow mt-4 lg:mt-0 ">
           {/* <LiveChat /> */}

@@ -90,7 +90,12 @@ const Head = () => {
             </div>
           )}
           <Link to={"/search?search_query=" + searchQuery}>
-            <div className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full">
+            <div
+              onClick={() => {
+                setSearchQuery("");
+              }}
+              className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full"
+            >
               <SearchOutlinedIcon fontSize="small" />
             </div>
           </Link>
