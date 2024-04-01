@@ -40,7 +40,11 @@ const WatchPage = () => {
             className="md:rounded-xl md:h-[400px] md:w-full w-full h-[300px]"
             // width="100%"
             // height="400"
-            src={"https://www.youtube.com/embed/" + params.get("v")}
+            src={
+              "https://www.youtube.com/embed/" +
+              params.get("v") +
+              "?&autoplay=1"
+            }
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

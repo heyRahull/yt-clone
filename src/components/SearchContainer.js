@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SearchCard from "./SearchCard";
 import { Link, useLocation } from "react-router-dom";
 import { GOOGLE_API_KEY } from "../utils/constants";
+import { YOUTUBE_SEARCHBYKEYWORD_API } from "../utils/constants";
 
 const SearchContainer = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const SearchContainer = () => {
 
   const fetchSearchResult = async () => {
     const data = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${query}&key=${GOOGLE_API_KEY}`
+      `${YOUTUBE_SEARCHBYKEYWORD_API}&q=${query}&key=${GOOGLE_API_KEY}`
     );
     const json = await data.json();
 
