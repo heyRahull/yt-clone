@@ -8,6 +8,7 @@ import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/MainContainer";
 import SearchContainer from "./components/SearchContainer";
 import ShortsContainer from "./components/ShortsContainer";
+import LivePage from "./components/LivePage";
 
 const appRouter = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "shorts",
         element: <ShortsContainer />,
+      },
+      {
+        path: "live",
+        element: <LivePage />,
       },
     ],
   },

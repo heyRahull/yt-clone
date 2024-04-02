@@ -18,7 +18,7 @@ const GOOGLE_API_KEYS = [
 
 export const GOOGLE_API_KEY = getRandomAPIKey();
 
-export const LIVE_CHAT_COUNT = 15;
+export const LIVE_CHAT_COUNT = 28;
 
 export const YOUTUBE_VIDEO_API =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=40&regionCode=US";
