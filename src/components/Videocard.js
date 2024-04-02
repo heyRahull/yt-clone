@@ -29,7 +29,7 @@ const Videocard = ({ info }) => {
 
   //   console.log(info);
   return (
-    <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-64 md:h-64">
+    <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-72 md:h-64">
       <img
         className="md:h-36 md:w-[100%] md:rounded-xl"
         src={thumbnails?.medium?.url}

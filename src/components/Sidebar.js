@@ -39,7 +39,7 @@ const Sidebar = () => {
             <Link to="/search?search_query=music taylor swift">
               <CollapsedSideBarRow icon={<LibraryMusicIcon />} name={"Music"} />
             </Link>
-            <Link to="/search?search_query=youtube%20shorts">
+            <Link to="/shorts">
               <CollapsedSideBarRow
                 icon={<VideoLibraryIcon />}
                 name={"Shorts"}
@@ -58,7 +58,7 @@ const Sidebar = () => {
             <Link to="/search?search_query=music taylor swift">
               <CollapsedSideBarRow icon={<LibraryMusicIcon />} name={"Music"} />
             </Link>
-            <Link to="/search?search_query=youtube%20shorts">
+            <Link to="/shorts">
               <CollapsedSideBarRow
                 icon={<VideoLibraryIcon />}
                 name={"Shorts"}
