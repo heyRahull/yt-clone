@@ -79,9 +79,18 @@ const Sidebar = () => {
       {/**Sidebar */}
       <div className="fixed  z-10 top-[66px] left-0 bg-white h-full w-64 shadow-lg p-5 ">
         <div className="border-b-[1px]">
-          <SideBarRow icon={<HomeIcon />} name={"Home"} />
-          <SideBarRow icon={<WhatshotIcon />} name={"Trending"} />
-          <SideBarRow icon={<SubscriptionsIcon />} name={"Subscription"} />
+          <Link to="/">
+            <SideBarRow icon={<HomeIcon />} name={"Home"} />
+          </Link>
+          <Link to="/search?search_query=trending">
+            <SideBarRow icon={<WhatshotIcon />} name={"Trending"} />
+          </Link>
+          <Link to="/search?search_query=music taylor swift">
+            <SideBarRow icon={<LibraryMusicIcon />} name={"Music"} />
+          </Link>
+          <Link to="/live?v=4AKrtL9wBmU">
+            <SideBarRow icon={<SubscriptionsIcon />} name={"Live Videos"} />
+          </Link>
         </div>
         <h1 className="font-bold m-4">
           You <ChevronRightIcon />
@@ -89,9 +98,7 @@ const Sidebar = () => {
         <ul>
           <SideBarRow icon={<VideoLibraryIcon />} name={"Libraries"} />
           <SideBarRow icon={<HistoryIcon />} name={"History"} />
-          <Link to="/live?v=4AKrtL9wBmU">
-            <SideBarRow icon={<SubscriptionsIcon />} name={"Live Videos"} />
-          </Link>
+
           <SideBarRow icon={<WatchLaterIcon />} name={"Watch Later"} />
           <SideBarRow icon={<ThumbUpOutlinedIcon />} name={"Liked Videos.."} />
         </ul>
