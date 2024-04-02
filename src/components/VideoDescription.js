@@ -9,6 +9,7 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import UnsubscribeIcon from "@mui/icons-material/Unsubscribe";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { formatDate } from "../utils/constants";
+import Loader from "./Loader";
 import {
   CHANNEL_DETAIL_API,
   GOOGLE_API_KEY,
@@ -26,7 +27,6 @@ const VideoDescription = ({ videoData }) => {
   const mobileDescriptionLimit = 40; // Character limit for description in collapsed state on mobile
   const desktopDescriptionLimit = 200; // Character limit for description in collapsed state on desktop
 
-  console.log(loading);
   useEffect(() => {
     if (videoData && videoData.length) {
       const { snippet } = videoData[0];
@@ -51,13 +51,13 @@ const VideoDescription = ({ videoData }) => {
   //Shimmer UI - If videoData is null or empty, render a placeholder or loading indicator
   if (!videoData || !videoData.length || loading) {
     return <div>Loading suggestions...</div>;
+    // return <Loader />;
   }
 
-  // console.log(videoData);
   const { snippet, statistics } = videoData[0];
   const { title, channelTitle, channelId, publishedAt, description } = snippet;
   const { likeCount, viewCount, commentCount } = statistics;
-  console.log(videoData);
+
   return (
     <div className="mt-3">
       <div className="flex flex-col">

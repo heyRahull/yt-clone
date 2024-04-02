@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import { GOOGLE_API_KEY } from "../utils/constants";
 import { formatViewCount } from "../utils/constants";
+import Loader from "./Loader";
 
 const SuggestionCard = ({ info }) => {
+  const [loading, setLoading] = useState(true);
   const [viewCount, setViewCount] = useState();
   const { snippet, id } = info;
   const { channelId, channelTitle, title, publishedAt, thumbnails } = snippet;
@@ -23,9 +25,12 @@ const SuggestionCard = ({ info }) => {
     const json = await data.json();
 
     setViewCount(json.items[0].statistics.viewCount);
+    setLoading(false);
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="md:flex md:m-2 md:w-full md:hover:bg-slate-100">
       <img
         className="md:h-20 md:w-auto md:max-w-40 md:rounded-lg w-full"

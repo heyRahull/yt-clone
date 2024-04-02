@@ -7,8 +7,10 @@ import LiveChat from "./LiveChat";
 import SuggestionContainer from "./SuggestionContainer";
 import { GOOGLE_API_KEY } from "../utils/constants";
 import VideoDescription from "./VideoDescription";
+import Loader from "./Loader";
 
 const WatchPage = () => {
+  const [loading, setLoading] = useState(true);
   const [params, setParams] = useSearchParams();
   const [videoData, setVideoData] = useState([]);
   // console.log(params.get("v"));
@@ -30,10 +32,13 @@ const WatchPage = () => {
     );
     const json = await data.json();
     setVideoData(json.items);
+    setLoading(false);
     // console.log(videoData);
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="watchPage_mbl md:flex md:flex-col md:max-w-screen-2xl ">
       <div className="md:px-5 md:flex md:flex-wrap md:w-full">
         <div className="md:w-8/12 flex-grow md:mt-4">
