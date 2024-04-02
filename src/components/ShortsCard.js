@@ -1,12 +1,12 @@
 import React from "react";
 
-const ShortsPage = () => {
+const ShortsCard = ({ id }) => {
   return (
-    <div>
+    <div className="mb-8 ">
       <iframe
-        width="315"
-        height="560"
-        src="https://www.youtube.com/embed/wrznm2c1k6o?si=p8ZwzQQPcbgTMBGP"
+        className="rounded-xl md:w-[315px] md:h-[550px] w-full "
+        style={{ height: "100vh" }}
+        src={`https://www.youtube.com/embed/${id}`}
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -16,4 +16,4 @@ const ShortsPage = () => {
   );
 };
 
-export default ShortsPage;
+export default ShortsCard;
