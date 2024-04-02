@@ -3,8 +3,10 @@ import { formatDistanceToNow } from "date-fns";
 import { Avatar } from "@mui/material";
 import { CHANNEL_DETAIL_API, GOOGLE_API_KEY } from "../utils/constants";
 import { formatViewCount } from "../utils/constants";
+import Loader from "./Loader";
 
 const Videocard = ({ info }) => {
+  const [loading, setLoading] = useState(true);
   // console.log(info);
   const [channelDetail, setChannelDetail] = useState();
   const { snippet, statistics } = info;
@@ -21,6 +23,7 @@ const Videocard = ({ info }) => {
     const json = await data.json();
 
     setChannelDetail(json.items[0].snippet.thumbnails.high.url);
+    setLoading(false);
   };
 
   const formatDate = (dateString) => {
@@ -28,7 +31,9 @@ const Videocard = ({ info }) => {
   };
 
   //   console.log(info);
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="video_card__mbl md:p-2 md:mx-1 md:mb-10 md:w-72 md:h-64">
       <img
         className="md:h-36 md:w-[100%] md:rounded-xl"

@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import { GOOGLE_API_KEY } from "../utils/constants";
 import { useSelector } from "react-redux";
 import errorImg from "../Images/error400_img.jpg";
+import Loader from "./Loader";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(false);
-  // const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const [loading, setLoading] = useState(true);
+
   const categoryId = useSelector((store) => store.category.id);
 
   useEffect(() => {
@@ -26,12 +28,13 @@ const VideoContainer = () => {
 
     const data = await fetch(apiUrl);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     if (json.error) {
       setError(true);
     } else {
       setError(false);
       setVideos(json.items);
+      setLoading(false);
     }
   };
   if (error == true) {
@@ -46,7 +49,10 @@ const VideoContainer = () => {
       </>
     );
   }
-  return (
+
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="videContainer_mbl md:flex md:flex-wrap pt-3">
       {videos.map((video) => {
         return (

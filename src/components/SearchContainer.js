@@ -3,8 +3,10 @@ import SearchCard from "./SearchCard";
 import { Link, useLocation } from "react-router-dom";
 import { GOOGLE_API_KEY } from "../utils/constants";
 import { YOUTUBE_SEARCHBYKEYWORD_API } from "../utils/constants";
+import Loader from "./Loader";
 
 const SearchContainer = () => {
+  const [loading, setLoading] = useState(true);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get("search_query");
@@ -22,10 +24,13 @@ const SearchContainer = () => {
     const json = await data.json();
 
     setSearchResults(json.items);
+    setLoading(false);
     // console.log(json.items);
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <div className="md:max-w-screen-xl searchPageContainer_mbl">
       {searchResults.map((searchResult) => {
         if (searchResult.id.kind === "youtube#video") {

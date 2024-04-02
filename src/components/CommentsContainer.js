@@ -5,6 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import CommentReply from "./CommentReply";
 import { GOOGLE_API_KEY } from "../utils/constants";
 import { YOUTUBE_COMMENTS_API } from "../utils/constants";
+import Loader from "./Loader";
 
 const commentsData = [
   {
@@ -68,6 +69,7 @@ const commentsData = [
 ];
 
 const CommentsContainer = () => {
+  const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -84,9 +86,12 @@ const CommentsContainer = () => {
     );
     const json = await data.json();
     setComments(json.items);
+    setLoading(false);
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <>
       <div className="md:m-5 md:ml-0 md:p-2 md:w-8/12">
         <h1 className="text-2xl font-bold ml-4">Comments</h1>
