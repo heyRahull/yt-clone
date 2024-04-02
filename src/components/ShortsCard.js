@@ -2,7 +2,7 @@ import React from "react";
 
 const ShortsCard = ({ id }) => {
   return (
-    <div className="mb-8 ">
+    <div className="mb-8 z-50 relative">
       <iframe
         className="rounded-xl md:w-[315px] md:h-[550px] w-full "
         style={{ height: "100vh" }}
