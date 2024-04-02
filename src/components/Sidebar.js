@@ -47,7 +47,7 @@ const Sidebar = () => {
             </Link>
           </div>
         </div>
-        <div className="md:hidden collapsed_sidebar_mbl bg-white z-10">
+        <div className="md:hidden collapsed_sidebar_mbl bg-white z-[60]">
           <div className="flex justify-around">
             <Link to="/">
               <CollapsedSideBarRow icon={<HomeIcon />} name={"Home"} />
