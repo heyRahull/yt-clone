@@ -38,6 +38,12 @@ const LiveChat = () => {
               onSubmit={(e) => {
                 e.preventDefault();
                 setLiveMsg("");
+                dispatch(
+                  addMessage({
+                    name: "RAHUL",
+                    message: liveMsg,
+                  })
+                );
               }}
             >
               <TextField
@@ -74,7 +80,7 @@ const LiveChat = () => {
                 />
               );
             })}
-            <ChatMessage name="rahul" message="This is a comment" />
+            {/* <ChatMessage name="rahul" message="This is a comment" /> */}
           </div>
 
           {/* <div className="border-b border-b-gray-300 m-2 pb-2 pl-2 font-semibold ">
