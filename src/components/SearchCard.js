@@ -6,7 +6,7 @@ import { CHANNEL_DETAIL_API } from "../utils/constants";
 import { formatViewCount } from "../utils/constants";
 
 const SearchCard = ({ thumbnail, data }) => {
-  const [viewCount, setViewCount] = useState();
+  const [viewCount, setViewCount] = useState(0);
   const [channelDetail, setChannelDetail] = useState();
   const { snippet, id } = data;
   const {
@@ -47,7 +47,7 @@ const SearchCard = ({ thumbnail, data }) => {
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id.videoId}&key=${GOOGLE_API_KEY}`
     );
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setViewCount(json.items[0].statistics.viewCount);
   };
 

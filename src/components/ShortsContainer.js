@@ -18,7 +18,7 @@ const ShortsContainer = () => {
   return (
     <div>
       {urls.map((id) => {
-        return <ShortsCard id={id} />;
+        return <ShortsCard id={id} key={id} />;
       })}
     </div>
   );
