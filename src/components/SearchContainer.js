@@ -27,7 +27,7 @@ const SearchContainer = () => {
     setLoading(false);
     // console.log(json.items);
   };
-
+  // console.log(searchResults);
   return loading ? (
     <Loader />
   ) : (
@@ -35,7 +35,10 @@ const SearchContainer = () => {
       {searchResults.map((searchResult) => {
         if (searchResult.id.kind === "youtube#video") {
           return (
-            <Link to={"/watch?v=" + searchResult.id.videoId}>
+            <Link
+              to={"/watch?v=" + searchResult.id.videoId}
+              key={searchResult.id.videoId}
+            >
               <SearchCard
                 data={searchResult}
                 thumbnail={searchResult.snippet.thumbnails.high.url}
